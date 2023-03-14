@@ -1,0 +1,9 @@
+.idea
+.DS_Store
+Thumbs.db
+tmp
+.env
+z2h-config.yaml
+z2h.yaml
+registries.yaml
+Brewfile.lock.json

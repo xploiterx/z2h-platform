@@ -1,0 +1,10 @@
+Host DevX
+  HostName 35.199.70.194
+  User carls
+IdentityFile ~/.ssh/devx
+
+Host VMAzure
+  HostName 20.39.41.118
+  User carls
+IdentityFile ~/.ssh/devx
+
