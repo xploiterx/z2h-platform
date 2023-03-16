@@ -241,18 +241,32 @@ EOF
 
     # Increment the JOIN_NODE
     ((JOIN_NODE=JOIN_NODE+1))
-
+    
+    #ubuntu linux-headers
     echo "Install linux-headers"
     if [ "${IP}" = "127.0.0.1" ]; then
-      sudo pacman -Syu
+      sudo apt-get update
       # shellcheck disable=SC2029
-      sudo pacman -S linux-headers
+      sudo apt-get install -y linux-headers-$(uname -r) linux-headers-generic
     else
-      ssh "${SERVER_USER}@${IP}" "sudo pacman -Syu"
+      ssh "${SERVER_USER}@${IP}" "sudo apt-get update"
       # shellcheck disable=SC2029
-      ssh "${SERVER_USER}@${IP}" 'sudo pacman -S linux-lts-headers-$(uname -r) linux-headers-generic'
+      ssh "${SERVER_USER}@${IP}" 'sudo apt-get install -y linux-headers-$(uname -r) linux-headers-generic'
     fi
   done
+    
+    #Archlinux linux-headers
+  #   echo "Install linux-headers"
+  #   if [ "${IP}" = "127.0.0.1" ]; then
+  #     sudo pacman -Syu
+  #     # shellcheck disable=SC2029
+  #     sudo pacman -S linux-headers
+  #   else
+  #     ssh "${SERVER_USER}@${IP}" "sudo pacman -Syu"
+  #     # shellcheck disable=SC2029
+  #     ssh "${SERVER_USER}@${IP}" 'sudo pacman -S linux-lts-headers-$(uname -r) linux-headers-generic'
+  #   fi
+  # done
 
   kubectl get nodes -o wide
 
