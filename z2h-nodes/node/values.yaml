@@ -1,0 +1,12 @@
+syncer:
+  extraArgs:
+  - --tls-san=35.222.53.121
+  # - --tls-san=20.55.10.216 Azure
+
+# sync:
+#   persistentvolumes:
+#     enabled: true
+#   # If you want to create custom storage classes
+#   # inside the vcluster.
+#   storageclasses:
+#     enabled: true
