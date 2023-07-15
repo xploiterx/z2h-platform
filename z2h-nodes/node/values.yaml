@@ -1,6 +1,6 @@
 syncer:
   extraArgs:
-  - --tls-san=35.222.53.121
+  - --tls-san=52.146.16.208
   # - --tls-san=20.55.10.216 Azure
 
 # sync:

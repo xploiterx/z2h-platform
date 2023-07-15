@@ -206,7 +206,7 @@ EOF
         --local="${USE_LOCAL}" \
         --local-path "${KUBECONFIG}" \
         --merge \
-        --k3s-channel="${K3S_CHANNEL}" \ #--k3s-version v1.21.5+k3s1 \
+        --k3s-channel="${K3S_CHANNEL}" \ #--k3s-version v1.27.3+k3s1  \
         --k3s-extra-args="--disable traefik ${EXTRA_ARGS}" \
         --user "${SERVER_USER}"
 
@@ -241,7 +241,7 @@ EOF
 
     # Increment the JOIN_NODE
     ((JOIN_NODE=JOIN_NODE+1))
-    
+
     #ubuntu linux-headers
     echo "Install linux-headers"
     if [ "${IP}" = "127.0.0.1" ]; then
@@ -254,7 +254,7 @@ EOF
       ssh "${SERVER_USER}@${IP}" 'sudo apt-get install -y linux-headers-$(uname -r) linux-headers-generic'
     fi
   done
-    
+
     #Archlinux linux-headers
   #   echo "Install linux-headers"
   #   if [ "${IP}" = "127.0.0.1" ]; then
@@ -270,7 +270,7 @@ EOF
 
   kubectl get nodes -o wide
 
-  echo "Installing cert-manager..."
+  # echo "Installing cert-manager..."
   helm upgrade \
     --atomic \
     --cleanup-on-fail \
